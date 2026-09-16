@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bazara — Everyday marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="announcement">FREE DELIVERY ON ORDERS OVER ৳1,500</div>
+
+  <header class="header">
+    <a class="logo" href="#">BAZAR<span>A</span></a>
+
+    <label class="search">
+      <span>⌕</span>
+      <input id="searchInput" type="search" placeholder="Search groceries, fashion, accessories..." />
+    </label>
+
+    <nav class="nav">
+      <button id="openAdmin" class="text-button">Admin</button>
+      <button id="openCart" class="basket-button" aria-controls="cartDrawer" aria-expanded="false">
+        BASKET <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+      
+        <p class="eyebrow">YOUR EVERYDAY MARKETPLACE</p>
+        <h1>Groceries, style<br />and everything else.</h1>
+        <p class="hero-text">
+          Shop fresh essentials, clothes and accessories from one simple store.
+        </p>
+        <a href="#shop" class="primary-button">SHOP NOW →</a>
+        <div class="trust-badges">
+  <span class="badge">🚚 Fast Delivery</span>
+  <span class="badge">🛡️ Secure Payment</span>
+  <span class="badge">🎧 24/7 Support</span>
+</div>
+      </div>
+
+      <div class="hero-side">
+        <strong>DELIVERY<br />TODAY</strong>
+        <span>Fresh essentials,<br />at your door.</span>
+      </div>
+    </section>
+
+    <section class="category-section">
+      <button class="category active" data-category="all">All products</button>
+      <button class="category" data-category="grocery">Groceries</button>
+      <button class="category" data-category="fashion">Fashion</button>
+      <button class="category" data-category="accessory">Accessories</button>
+      <button class="category" data-category="beauty">Beauty</button>
+    </section>
+
+    <section id="shop" class="shop-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">POPULAR NOW</p>
+          <h2>Shop the edit</h2>
+        </div>
+        <span id="productTotal"></span>
+      </div>
+
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+  </main>
+
+  <aside id="cartDrawer" class="drawer hidden">
+    <div class="drawer-header">
+      <h2>Your basket</h2>
+      <button id="closeCart" class="close-button">×</button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">৳0</strong>
+      </div>
+      <button id="checkoutButton" class="primary-button checkout-button">
+        CHECKOUT
+      </button>
+    </div>
+  </aside>
+  <button id="drawerBackdrop" class="drawer-backdrop hidden" aria-label="Close basket"></button>
+
+  <section id="adminPanel" class="admin-panel hidden">
+    <div class="admin-box">
+      <div class="drawer-header">
+        <div>
+          <p class="eyebrow">STORE MANAGEMENT</p>
+          <h2>Product dashboard</h2>
+        </div>
+        <button id="closeAdmin" class="close-button">×</button>
+      </div>
+
+      <div class="admin-grid">
+        <form id="productForm" class="product-form">
+          <h3>Add a product</h3>
+
+          <label>
+            Product name
+            <input name="name" required placeholder="Premium cotton shirt" />
+          </label>
+
+          <label>
+            Category
+            <select name="category">
+              <option value="grocery">Grocery</option>
+              <option value="fashion">Fashion</option>
+              <option value="accessory">Accessory</option>
+              <option value="beauty">Beauty</option>
+            </select>
+          </label>
+
+          <label>
+            Price (৳)
+            <input name="price" type="number" min="0" required placeholder="1200" />
+          </label>
+
+          <label>
+            Image URL
+            <input
+              name="image"
+              type="url"
+              required
+              placeholder="https://images.unsplash.com/..."
+            />
+          </label>
+
+          <button class="primary-button" type="submit">ADD PRODUCT</button>
+        </form>
+
+        <div class="admin-products-area">
+          <div class="admin-products-title">
+            <h3>Current products</h3>
+            <button id="resetProducts" class="reset-button">Reset demo products</button>
+          </div>
+          <div id="adminProductList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
